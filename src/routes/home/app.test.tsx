@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { render } from "@testing-library/react";
-import App from "./app";
+import Home from ".";
 
 vi.stubGlobal("matchMedia", (query: string) => ({
   matches: false,
@@ -16,7 +16,7 @@ vi.stubGlobal("matchMedia", (query: string) => ({
 describe("component", () => {
   describe("App", () => {
     it("should render correctly", () => {
-      const { container } = render(<App />);
+      const { container } = render(<Home />);
 
       expect(container.firstChild).toBeTruthy();
     });
