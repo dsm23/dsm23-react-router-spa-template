@@ -39,7 +39,7 @@ RUN corepack enable pnpm \
 FROM nginx:1.29.8-alpine-slim@sha256:c9366b8c560169b101ca0e5422ed063b20779e6454c2326b9c9704225c9b0c08 AS runner
 
 # Copy built static files to nginx's default public folder
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/build/client /usr/share/nginx/html
 COPY --from=builder /app/nginx/nginx.conf /etc/nginx/templates/default.conf.template
 
 # implement changes required to run NGINX as an unprivileged user
