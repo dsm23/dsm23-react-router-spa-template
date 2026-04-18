@@ -107,9 +107,17 @@ export default defineConfig({
     "typescript/explicit-function-return-type": "off",
     "typescript/explicit-module-boundary-types": "off",
     "typescript/no-confusing-void-expression": "off",
+    "typescript/no-misused-promises": [
+      "warn",
+      {
+        checksVoidReturn: false,
+      },
+    ],
     "typescript/no-unsafe-type-assertion": "off",
+    "typescript/non-nullable-type-assertion-style": "off",
     "typescript/prefer-readonly-parameter-types": "off",
     "typescript/strict-boolean-expressions": "off",
+    "typescript/strict-void-return": "off",
     "unicorn/filename-case": [
       "warn",
       {
