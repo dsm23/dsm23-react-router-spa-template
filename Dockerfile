@@ -6,7 +6,7 @@ FROM nginx:1.30.0-alpine-slim@sha256:2fb5d772cea6ef1a8dab525df1b9485289eee167d26
 # renovate: datasource=node-version depName=node
 ARG NODE_VERSION="26.1.0"
 
-# Stage 1: Base image for dependencies and build
+# Stage 1: Install dependencies only when needed
 FROM base AS deps
 
 WORKDIR /app
@@ -15,8 +15,8 @@ ENV LEFTHOOK=0
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-RUN pnpm runtime set node "$NODE_VERSION" -g \
-  && pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+  pnpm runtime set node "$NODE_VERSION" -g && pnpm install --frozen-lockfile
 
 # Stage 2: Build stage
 FROM base AS builder
