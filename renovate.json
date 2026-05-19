@@ -53,8 +53,8 @@
       "description": "Force pnpm Docker to use GitHub timestamps",
       "matchPackageNames": ["ghcr.io/pnpm/pnpm"],
       "matchDatasources": ["docker"],
-      "overrideDatasource": "npm",
-      "overridePackageName": "pnpm"
+      "minimumReleaseAge": "3 days",
+      "sourceUrl": "https://github.com/pnpm/pnpm"
     },
     {
       "groupName": "playwright monorepo",
@@ -68,8 +68,8 @@
       "description": "Force Playwright Docker to use GitHub timestamps",
       "matchPackageNames": ["mcr.microsoft.com/playwright"],
       "matchDatasources": ["docker"],
-      "overrideDatasource": "github-releases",
-      "overridePackageName": "microsoft/playwright"
+      "minimumReleaseAge": "3 days",
+      "sourceUrl": "https://github.com/microsoft/playwright"
     }
   ],
   "rebaseWhen": "conflicted",
